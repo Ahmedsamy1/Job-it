@@ -13,9 +13,41 @@
         <ul></ul>
         <ul></ul>
       <input class="form-control mr-sm-2" type="search" placeholder="enter a specific criteria" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="getjobs()">Search</button>
     </form>
   </div>
+
   </nav>
 
+  <div class="container">
+      <div class="row">
+      <span *ngFor="let job of jobs; let i = index;">
 
+        <div *ngIf="i<15">
+
+            <div class="col-md-6">
+                <img src={{job.company_logo}}>
+            <P> company name: {{job.company}} </P>
+            <P> job title: {{job.title.substring(0,12)}}..... </P>
+<ul></ul>
+
+              </div>
+            </div>
+
+
+
+
+
+
+
+      </span>
+    </div>
+  </div>
+
+
+
+  <div class="row">
+      <div class="col-sm-4">.{{jobs[0].title}}</div>
+      <div class="col-sm-4">.{{jobs[1].title}}</div>
+      <div class="col-sm-4">.{{jobs[3].title}}</div>
+    </div>

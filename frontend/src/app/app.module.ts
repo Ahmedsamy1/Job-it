@@ -6,6 +6,7 @@ import {LoginComponent} from './login/login.component';
 import {SignupComponent} from './signup/signup.component';
 import {AlljobsComponent} from './alljobs/alljobs.component';
 import {HttpClientModule} from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -22,7 +23,7 @@ const routes: Routes = [
     AlljobsComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule,
+    BrowserModule, HttpClientModule, FormsModule ,
     RouterModule.forRoot(routes)
   ],
   providers: [],
