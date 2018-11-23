@@ -1,0 +1,25 @@
+{
+  "name": "jobit",
+  "version": "1.0.0",
+  "description": "This is a web application where users can search for jobs from different job-searching websites",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ahmedsamy1/Job-it.git"
+  },
+  "author": "Ahmed Samy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ahmedsamy1/Job-it/issues"
+  },
+  "homepage": "https://github.com/Ahmedsamy1/Job-it#readme",
+  "devDependencies": {},
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
+  }
+}
