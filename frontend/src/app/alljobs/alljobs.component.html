@@ -25,16 +25,20 @@
 
         <div *ngIf="i<15">
 
-            <div class="col-md-6">
-                <img src={{job.company_logo}}>
-            <P> company name: {{job.company}} </P>
-            <P> job title: {{job.title.substring(0,12)}}..... </P>
-<ul></ul>
-
+          <div class="col-md">
+            <div class="jobbox" >
+                <img src={{job.company_logo}} alt="job.company">
+            <h5 class="companytitle"> company name: {{job.company}} </h5>
+            <p></p>
+            <P class="jobtitle"> job title:<span> {{job.title.substring(0,45)}}..... </span> </P>
+<button class="seemorebutton">click to see more info </button>
+            <p></p>
+            <p></p>
               </div>
             </div>
-
-
+          </div>
+<p></p>
+<p></p>
 
 
 
