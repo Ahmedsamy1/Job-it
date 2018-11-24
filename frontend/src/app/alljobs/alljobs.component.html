@@ -1,7 +1,7 @@
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
-    <form class="form-inline">
+    <form class="form-inline" (ngSubmit)="search()" >
         <ul></ul>
         <ul></ul>
         <ul></ul>
@@ -12,8 +12,8 @@
         <ul></ul>
         <ul></ul>
         <ul></ul>
-      <input class="form-control mr-sm-2" type="search" placeholder="enter a specific criteria" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="getjobs()">Search</button>
+      <input class="form-control mr-sm-2" type="search" placeholder="enter a specific criteria" aria-label="Search" [(ngModel)]="criteria" name="first" id="1">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
 
@@ -46,8 +46,4 @@
 
 
 
-  <div class="row">
-      <div class="col-sm-4">.{{jobs[0].title}}</div>
-      <div class="col-sm-4">.{{jobs[1].title}}</div>
-      <div class="col-sm-4">.{{jobs[3].title}}</div>
-    </div>
+

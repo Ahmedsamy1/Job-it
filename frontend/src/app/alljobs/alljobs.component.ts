@@ -7,6 +7,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class AlljobsComponent implements OnInit {
   jobs: any = [];
+  criteria: string;
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
@@ -16,7 +17,14 @@ export class AlljobsComponent implements OnInit {
     });
 
   }
-getjobs() {
-  console.log(this.jobs[0].title);
+
+search() {
+  this.criteria = document.getElementById('1').value;
+console.log(this.criteria);
+this.http.get('https://jobs.github.com/positions.json?search=' + this.criteria).subscribe((data: {}) => {
+      console.log(data);
+      this.jobs = data;
+    });
 }
+
 }
