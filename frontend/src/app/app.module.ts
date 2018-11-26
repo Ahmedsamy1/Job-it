@@ -7,11 +7,13 @@ import {SignupComponent} from './signup/signup.component';
 import {AlljobsComponent} from './alljobs/alljobs.component';
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { JobComponent } from './job/job.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'home', component: AlljobsComponent},
+  {path: 'job/:id/:citeria', component : JobComponent},
   {path: '', redirectTo: 'home' , pathMatch: 'full'}
 ];
 
@@ -20,7 +22,8 @@ const routes: Routes = [
     AppComponent,
     LoginComponent,
     SignupComponent,
-    AlljobsComponent
+    AlljobsComponent,
+    JobComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, FormsModule ,
