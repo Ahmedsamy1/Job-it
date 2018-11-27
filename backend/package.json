@@ -19,7 +19,9 @@
   "homepage": "https://github.com/Ahmedsamy1/Job-it#readme",
   "devDependencies": {},
   "dependencies": {
+    "bcrypt": "^3.0.2",
     "body-parser": "^1.18.3",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "mongoose": "^5.3.13"
   }
 }

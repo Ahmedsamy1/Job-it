@@ -1,11 +1,18 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 
 const app = express();
 
 const searchRoutes = require('./routes/search');
+const config = require('./config/config');
 
-app.use(bodyParser.urlencoded({ extended: false }));
+const { db: { host, port, name } } = config;
+const connectionString = `mongodb://${host}:${port}/${name}`;
+mongoose.connect(connectionString, { useNewUrlParser: true });
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 app.use('/user', searchRoutes);
 
