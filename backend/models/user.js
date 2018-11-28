@@ -8,7 +8,7 @@ const userSchema = mongoose.Schema({
         required: true,
         trim: true,
         lowercase: true,
-        createIndexes: { unique: true }
+       
     },
     firstName: {
         type: String,
@@ -18,13 +18,13 @@ const userSchema = mongoose.Schema({
         type: String,
         trim: true,
     },
-    email: {
+   /* email: {
         type: String,
         required: true,
         trim: true,
         lowercase: true,
         createIndexes: { unique: true }
-    },
+    },*/
     password: {
         type: String,
         required: true
