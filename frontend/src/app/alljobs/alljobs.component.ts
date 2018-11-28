@@ -20,8 +20,11 @@ export class AlljobsComponent implements OnInit {
 
   }
 
-search() {
-  this.criteria = document.getElementById('1').value;
+search(event) {
+  event.preventDefault();
+console.log(event.srcElement[0].value);
+  this.criteria = event.srcElement[0].value;
+  console.log(this.criteria);
 console.log(this.criteria);
 this.http.get('https://jobs.github.com/positions.json?search=' + this.criteria).subscribe((data: {}) => {
       console.log(data);
