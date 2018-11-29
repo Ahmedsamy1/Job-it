@@ -80,7 +80,7 @@ function login(req,res){
         
 
                 else{    res.status(200).send({
-                    message: 'Te has logueado correctamente',
+                 //   message: 'Te has logueado correctamente',
                     //token: service.createToken(user)
                     user:user
                   })}
