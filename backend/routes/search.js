@@ -15,6 +15,7 @@ router.post('/jobs', (req, res, next) => {
 
 router.post('/createuser', userController.createUser);
 router.get('/allusers', userController.allusers);
+router.post('/login', userController.login);
 
 router.get('/', (req, res, next) => {
     res.send('<h1>Hello from expressjs</h1>');

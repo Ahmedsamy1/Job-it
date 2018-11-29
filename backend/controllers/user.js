@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const User = require('../models/user');
+var passport = require('passport')
+  , LocalStrategy = require('passport-local').Strategy;
 
 function createUser (req, res, next) {
    
@@ -60,6 +62,37 @@ else{
 
 }
 
+function login(req,res){
+    User.findOne({ userName: req.body.userName }, (err, user) => {
+        if (err)  res.status(500).send({ message: err })
+        else{
+        if (!user) {res.status(404).send({ message: 'No existe el usuario' })}    
+        
+           /*else{ user.comparePassword(req.body.password, hashpassword, (err, isMatch) => {
+                if (!isMatch) {
+                    res.status(404).send({ message: 'No existe el usuario' })}
+                  */
+                  
+                else{    res.status(200).send({
+                    message: 'Te has logueado correctamente',
+                    //token: service.createToken(user)
+                    user:user
+                  })}
+                
+            }
+        
+          
+          
+       // req.user = user
+   
+    
+
+      })
+    }
+   
+
+
+
 module.exports = {
-    createUser,allusers
+    createUser,allusers,login
 }
