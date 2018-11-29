@@ -8,6 +8,9 @@ import {AlljobsComponent} from './alljobs/alljobs.component';
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { JobComponent } from './job/job.component';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { NgFlashMessagesModule } from 'ng-flash-messages';
+
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -23,10 +26,11 @@ const routes: Routes = [
     LoginComponent,
     SignupComponent,
     AlljobsComponent,
-    JobComponent
+    JobComponent,
+
   ],
   imports: [
-    BrowserModule, HttpClientModule, FormsModule ,
+    BrowserModule, HttpClientModule, FormsModule ,  NgFlashMessagesModule.forRoot() ,
     RouterModule.forRoot(routes)
   ],
   providers: [],

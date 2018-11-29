@@ -66,7 +66,7 @@ function login(req,res){
     User.findOne({ userName: req.body.userName }, (err, user) => {
         if (err)  res.status(500).send({ message: err })
         else{
-        if (!user) {res.status(404).send({ message: 'No existe el usuario' })}    
+        if (!user) {res.send({ message: 'No existe el usuario' })}    
        else{ 
          user.isPasswordMatch(req.body.password, user.password, (err, isMatch) => {
 
@@ -80,7 +80,7 @@ function login(req,res){
         
 
                 else{    res.status(200).send({
-                 //   message: 'Te has logueado correctamente',
+                   message: 'success',
                     //token: service.createToken(user)
                     user:user
                   })}
