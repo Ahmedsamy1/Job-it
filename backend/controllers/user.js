@@ -67,18 +67,25 @@ function login(req,res){
         if (err)  res.status(500).send({ message: err })
         else{
         if (!user) {res.status(404).send({ message: 'No existe el usuario' })}    
+       else{ 
+         user.isPasswordMatch(req.body.password, user.password, (err, isMatch) => {
+
+        //Invalid password
+        if (!isMatch) {
+           res.send({
+            success: false,
+            message: 'Error, Invalid Password'
+          });
+        }
         
-           /*else{ user.comparePassword(req.body.password, hashpassword, (err, isMatch) => {
-                if (!isMatch) {
-                    res.status(404).send({ message: 'No existe el usuario' })}
-                  */
-                  
+
                 else{    res.status(200).send({
                     message: 'Te has logueado correctamente',
                     //token: service.createToken(user)
                     user:user
                   })}
-                
+                })   
+            }
             }
         
           

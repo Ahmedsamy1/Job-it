@@ -59,4 +59,13 @@ userSchema.methods.comparePassword = function (candidatePassword, cb) {
     });
 };
 
+userSchema.methods.isPasswordMatch = function(plainPassword, hashed, callback) {
+    bcrypt.compare(plainPassword, hashed, (err, isMatch) => {
+      if (err) {
+        return callback(err);
+      }
+      callback(null, isMatch);
+    });
+}
+
 module.exports = mongoose.model('User', userSchema);
