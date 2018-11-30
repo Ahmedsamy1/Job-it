@@ -13,6 +13,7 @@ export class AlljobsComponent implements OnInit {
   constructor(private http: HttpClient, private router: Router) { }
 
   ngOnInit() {
+    console.log(localStorage.getItem('loggedin'));
     this.http.get('https://jobs.github.com/positions.json?search=node').subscribe((data: {}) => {
       console.log(data);
       this.jobs = data;
