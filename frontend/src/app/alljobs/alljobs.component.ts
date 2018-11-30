@@ -17,6 +17,7 @@ export class AlljobsComponent implements OnInit {
     this.http.get('https://jobs.github.com/positions.json?search=node').subscribe((data: {}) => {
       console.log(data);
       this.jobs = data;
+      this.ngOnInit();
     });
 
   }

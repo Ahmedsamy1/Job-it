@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     console.log(localStorage.getItem('loggedin'));
+    console.log(localStorage.getItem('username'));
   }
 login(event) {
   this.userName = event.srcElement[0].value;
@@ -32,7 +33,10 @@ if (res.message === 'success') {
   this.auth.isloggedin = true;
   console.log(this.auth.user);
   localStorage.setItem('loggedin', 'true');
+  localStorage.setItem('username', res.user.username);
 console.log(localStorage.getItem('loggedin'));
+window.location.reload();
+window.location.reload();
 this.router.navigateByUrl('/home');
 } else {
   this.ngFlashMessageService.showFlashMessage({
