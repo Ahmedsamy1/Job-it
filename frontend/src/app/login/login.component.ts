@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../auth.service';
 import { Router } from '@angular/router';
 import { NgFlashMessageService } from 'ng-flash-messages';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -33,10 +34,10 @@ if (res.message === 'success') {
   this.auth.isloggedin = true;
   console.log(this.auth.user);
   localStorage.setItem('loggedin', 'true');
-  localStorage.setItem('username', res.user.username);
+  localStorage.setItem('user', this.userName);
 console.log(localStorage.getItem('loggedin'));
 window.location.reload();
-window.location.reload();
+//window.location.reload();
 this.router.navigateByUrl('/home');
 } else {
   this.ngFlashMessageService.showFlashMessage({

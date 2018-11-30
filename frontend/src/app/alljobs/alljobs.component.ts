@@ -14,10 +14,11 @@ export class AlljobsComponent implements OnInit {
 
   ngOnInit() {
     console.log(localStorage.getItem('loggedin'));
+    console.log('user =' + localStorage.getItem('user'));
     this.http.get('https://jobs.github.com/positions.json?search=node').subscribe((data: {}) => {
       console.log(data);
       this.jobs = data;
-      this.ngOnInit();
+
     });
 
   }

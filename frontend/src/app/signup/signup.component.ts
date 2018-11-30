@@ -40,10 +40,10 @@ export class SignupComponent implements OnInit {
 
   onSignUp(event: any) {
     this.http.signUp(this.userName, this.password, this.firstName, this.lastName).subscribe((res: any) => {
-      console.log(res.status === 'done');
-      console.log(res.status);
+     // console.log(res.status === 'done');
+      console.log(res.message);
 
-      if (res.status === 'done') {
+      if (res.status !== 500) {
         this.successRegister = true;
         this.failedRegister = false;
       }

@@ -11,6 +11,7 @@ export class AppComponent {
   logged = localStorage.getItem('loggedin');
   logout() {
 localStorage.setItem('loggedin', 'false');
+localStorage.removeItem('user');
 window.location.reload();
 window.location.reload();
 
