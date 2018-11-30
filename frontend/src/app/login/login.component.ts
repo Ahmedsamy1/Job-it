@@ -27,7 +27,7 @@ login(event) {
    };
  // console.log(this.userName, this.password);
 
-this.auth.login(user).subscribe((res) => {
+this.auth.login(user).subscribe((res: any) => {
 console.log(res);
 if (res.message === 'success') {
   this.auth.user = res ;
@@ -37,7 +37,7 @@ if (res.message === 'success') {
   localStorage.setItem('user', this.userName);
 console.log(localStorage.getItem('loggedin'));
 window.location.reload();
-//window.location.reload();
+
 this.router.navigateByUrl('/home');
 } else {
   this.ngFlashMessageService.showFlashMessage({
@@ -53,7 +53,7 @@ this.router.navigateByUrl('/home');
 
 }
 
-//this.router.navigateByUrl('/home');
+
 });
 
 }

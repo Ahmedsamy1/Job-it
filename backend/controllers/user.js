@@ -40,7 +40,7 @@ function createUser (req, res, next) {
     });
     user.save((err, doc) => {
         if (!err) { res.send({message :'success',user : doc}); }
-        else { res.status(500).send({message:'error al salvar a la base de datos'}) }
+        else { res.send({message:'error al salvar a la base de datos'}) }
 
 })
 }

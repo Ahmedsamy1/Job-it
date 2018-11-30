@@ -11,8 +11,8 @@ export class SignupComponent implements OnInit {
   private password: string = '';
   private firstName: string = '';
   private lastName: string = '';
-  private successRegister: boolean = false;
-  private failedRegister: boolean = false;
+  successRegister: any ;
+  failedRegister: any ;
 
 
   constructor(public http: SignupService) {
@@ -43,13 +43,13 @@ export class SignupComponent implements OnInit {
      // console.log(res.status === 'done');
       console.log(res.message);
 
-      if (res.status !== 500) {
-        this.successRegister = true;
-        this.failedRegister = false;
+      if (res.message === 'success') {
+        this.successRegister = 'true';
+        this.failedRegister = 'false';
       }
-      else {
-        this.successRegister = false;
-        this.failedRegister = true;
+      if (res.message !== 'success') {
+        this.successRegister = 'false';
+        this.failedRegister = 'true';
       }
     });
   }

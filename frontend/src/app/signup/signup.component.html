@@ -1,9 +1,12 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-12">
+      <div *ngIf="successRegister=='true' ">
       <h1 class="text-center mt-3" *ngIf="successRegister">Signed Up Successfully!</h1>
-      <h1 class="text-center mt-3" *ngIf="failedRegister">Failed to Sign Up. Username Already exists!</h1>
-
+    </div>
+    <div *ngIf="failedRegister =='true'">
+      <h1 class="text-center mt-3" >Failed to Sign Up. Username Already exists!</h1>
+    </div>
       <h2 class="text-center mt-3">Sign up</h2>
       <form action="">
         <div class="form-group">
