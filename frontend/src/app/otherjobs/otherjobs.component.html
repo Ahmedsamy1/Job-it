@@ -23,7 +23,8 @@
       <div class="row">
       <span *ngFor="let job of jobs; let i = index;">
 
-        <div *ngIf="i<10">
+        <div *ngIf="i>(crpg*10)">
+            <div *ngIf="i<(crpg*20)">
 
           <div class="col-md">
             <div class="jobbox" >
@@ -37,6 +38,7 @@
               </div>
             </div>
           </div>
+          </div>
 <p></p>
 <p></p>
 
@@ -49,11 +51,18 @@
   </div>
 
 
+
   <div class="container">
   <div class="wrapper">
+    <div *ngIf="crpg==2">
+        <a href="/home" text-align=center class="btn btn-outline-success my-2 my-sm-0" role="button" aria-pressed="true">back</a>
+    </div>
+    <div *ngIf="crpg>2">
+      <a href="/home/{{crpg-1}}/{{pg}}/{{criteria}}" text-align=center class="btn btn-outline-success my-2 my-sm-0" role="button" aria-pressed="true">back</a>
+    </div>
   <div *ngFor="let p of pgs; let i = index; " >
 
-        <div *ngIf="i>1">
+        <div *ngIf="i>crpg">
 
                 <a href="/home/{{i}}/{{pg}}/{{criteria}}" text-align=center class="btn btn-outline-success my-2 my-sm-0" role="button" aria-pressed="true">{{i}}</a>
 

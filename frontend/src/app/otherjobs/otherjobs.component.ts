@@ -1,20 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+
 @Component({
-  selector: 'app-alljobs',
-  templateUrl: './alljobs.component.html',
-  styleUrls: ['./alljobs.component.css']
+  selector: 'app-otherjobs',
+  templateUrl: './otherjobs.component.html',
+  styleUrls: ['./otherjobs.component.css']
 })
-export class AlljobsComponent implements OnInit {
+export class OtherjobsComponent implements OnInit {
   jobs: any = [];
   pg: any;
   pgs: any ;
-
+  crpg: any;
   criteria: any = 'node';
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router , private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.crpg = this.route.snapshot.params['pg'];
+
+    this.criteria = this.route.snapshot.params['criteria'];
+    console.log('cr=' + this.criteria);
+    console.log('crpg=' + this.crpg);
     console.log(localStorage.getItem('loggedin'));
     console.log('user =' + localStorage.getItem('user'));
     this.http.get('https://jobs.github.com/positions.json?search=node').subscribe((data: {}) => {
