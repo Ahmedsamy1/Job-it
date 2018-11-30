@@ -43,6 +43,7 @@ function allusers(req, res) {
 
 function login(req, res) {
     User.findOne({ userName: req.body.userName }, (err, user) => {
+<<<<<<< HEAD
         if (err) res.status(500).send({ message: err })
         else {
             if (!user) { res.status(404).send({ message: 'No existe el usuario' }) }
@@ -66,6 +67,30 @@ function login(req, res) {
                         })
                     }
                 })
+=======
+        if (err)  res.status(500).send({ message: err })
+        else{
+        if (!user) {res.send({ message: 'No existe el usuario' })}    
+       else{ 
+         user.isPasswordMatch(req.body.password, user.password, (err, isMatch) => {
+
+        //Invalid password
+        if (!isMatch) {
+           res.send({
+            success: false,
+            message: 'Error, Invalid Password'
+          });
+        }
+        
+
+                else{    res.status(200).send({
+                   message: 'success',
+                    //token: service.createToken(user)
+                    user:user
+                  })}
+                })   
+            }
+>>>>>>> b513e66495633aae6c02df295eb84ea2c81e46fa
             }
         }
 

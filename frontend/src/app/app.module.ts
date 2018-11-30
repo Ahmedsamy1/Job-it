@@ -9,10 +9,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { JobComponent } from './job/job.component';
 import { SignupService } from './signup/signup.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { NgFlashMessagesModule } from 'ng-flash-messages';
+import { AuthService } from './auth.service';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'signup', component: SignupComponent },
+  { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
+  { path: 'signup', component: SignupComponent, canActivate: [AuthGuard] },
   { path: 'home', component: AlljobsComponent },
   { path: 'job/:id/:citeria', component: JobComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
@@ -24,10 +28,12 @@ const routes: Routes = [
     LoginComponent,
     SignupComponent,
     AlljobsComponent,
-    JobComponent
+    JobComponent,
+
+
   ],
   imports: [
-    BrowserModule, HttpClientModule, FormsModule,
+    BrowserModule, HttpClientModule, FormsModule, NgFlashMessagesModule.forRoot(),
     RouterModule.forRoot(routes)
   ],
   providers: [SignupService],
