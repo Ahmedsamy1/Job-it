@@ -8,7 +8,7 @@ const userSchema = mongoose.Schema({
         required: true,
         trim: true,
         lowercase: true,
-       
+        createIndexes: { unique: true }
     },
     firstName: {
         type: String,
@@ -18,18 +18,19 @@ const userSchema = mongoose.Schema({
         type: String,
         trim: true,
     },
-   /* email: {
-        type: String,
-        required: true,
-        trim: true,
-        lowercase: true,
-        createIndexes: { unique: true }
-    },*/
+    /* email: {
+         type: String,
+         required: true,
+         trim: true,
+         lowercase: true,
+         createIndexes: { unique: true }
+     },*/
     password: {
         type: String,
         required: true
     }
 });
+
 
 userSchema.pre('save', function (next) {
     var user = this;
@@ -59,12 +60,12 @@ userSchema.methods.comparePassword = function (candidatePassword, cb) {
     });
 };
 
-userSchema.methods.isPasswordMatch = function(plainPassword, hashed, callback) {
+userSchema.methods.isPasswordMatch = function (plainPassword, hashed, callback) {
     bcrypt.compare(plainPassword, hashed, (err, isMatch) => {
-      if (err) {
-        return callback(err);
-      }
-      callback(null, isMatch);
+        if (err) {
+            return callback(err);
+        }
+        callback(null, isMatch);
     });
 }
 

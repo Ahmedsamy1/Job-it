@@ -1,24 +1,25 @@
 <span *ngFor="let job of jobs; let i = index;">
 
   <div *ngIf="job.id==id">
-<div class="container">
-  <div class="active-job">
-  <img class="active-job__img" src={{job.company_logo}} alt="{{job.company}}"/>
- <h3 class="active-job__title" >title: {{job.title}}</h3>
- <h3>type: {{job.type}} </h3>
- <h2 class=active-job_company >company:  <span>{{job.company}}</span> </h2>
- <h3>location: {{job.location}}</h3>
- <h4 class="active-job__publisher" >how to apply: <span>{{job.how_to_apply}}</span></h4>
- <div *ngIf="job.company_url!=null;else no_url">
-  <p class="active-job__website">website:<span><a target='_blank' href= "{{job.company_url}}">{{job.company_url}}</a></span> </p>
+    <div class="container">
+      <div class="active-job">
+        <img class="active-job__img" src={{job.company_logo}} alt="{{job.company}}" />
+        <h3 class="active-job__title">title: {{job.title}}</h3>
+        <h3>type: {{job.type}} </h3>
+        <h2 class=active-job_company>company: <span>{{job.company}}</span> </h2>
+        <h3>location: {{job.location}}</h3>
+        <h4 class="active-job__publisher">how to apply: <span>{{job.how_to_apply}}</span></h4>
+        <div *ngIf="job.company_url!=null;else no_url">
+          <p class="active-job__website">website:<span><a target='_blank' href="{{job.company_url}}">{{job.company_url}}</a></span>
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-  </div>
-</div>
 </span>
 
 <ng-template #no_url>
 
-    <p class="active-job__website">website:<span><a target='_blank' >no webiste to show</a></span> </p>
+  <p class="active-job__website">website:<span><a target='_blank'>no webiste to show</a></span> </p>
 
 </ng-template>
