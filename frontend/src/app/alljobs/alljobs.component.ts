@@ -21,7 +21,7 @@ export class AlljobsComponent implements OnInit {
       console.log(data);
       this.jobs = data;
       this.pg = this.jobs.length;
-      this.pg = Math.floor((this.pg / 10));
+      this.pg = Math.ceil((this.pg / 10));
       console.log(this.pg);
       this.pgs = new Array(this.pg);
     });
