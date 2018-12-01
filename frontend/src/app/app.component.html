@@ -15,20 +15,38 @@
       </li>
       <ul></ul>
       <div *ngIf="logged=='true'">
-          <li class="nav-item">
-                <a (click)="logout()" class="nav-link">LOGOUT</a>
+          <li class="nav-item active">
+              <a class="nav-link" href="home">see later jobs <span class="sr-only">(current)</span></a>
             </li>
-      </div>
+        </div>
+        <ul></ul>
+
       <div *ngIf="logged=='false'">
-      <li class="nav-item">
+          <li class="nav-item active">
       <a class="nav-link" href="login">LOGIN</a>
       </li>
     </div>
       <ul></ul>
-      <li class="nav-item">
+      <div *ngIf="logged=='false'">
+          <li class="nav-item active">
         <a class="nav-link" href="signup">Signup</a>
       </li>
+    </div>
+    <div *ngIf="logged=='true'">
+        <li class="nav-item active">
+        <a class="nav-link" href="signup">create new account</a>
+      </li>
+    </div>
 
+<ul>
+</ul>
+<div *ngIf="logged=='true'">
+    <li class="nav-item active">
+      <div class="logout" >
+          <a (click)="logout()" class="nav-link">LOGOUT</a>
+        </div>
+      </li>
+</div>
 
 
     </ul>

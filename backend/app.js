@@ -28,6 +28,7 @@ const config = require('./config/config');
 const { db: { host, port, name } } = config;
 const connectionString = `mongodb://${host}:${port}/${name}`;
 mongoose.connect(connectionString, { useNewUrlParser: true });
+mongoose.set('useCreateIndex', true);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

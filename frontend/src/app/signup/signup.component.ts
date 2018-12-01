@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SignupService } from './signup.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -15,7 +16,7 @@ export class SignupComponent implements OnInit {
   failedRegister: any ;
 
 
-  constructor(public http: SignupService) {
+  constructor(public http: SignupService, private router: Router) {
 
   }
 
@@ -46,6 +47,11 @@ export class SignupComponent implements OnInit {
       if (res.message === 'success') {
         this.successRegister = 'true';
         this.failedRegister = 'false';
+        localStorage.setItem('loggedin', 'true');
+        localStorage.setItem('user', this.userName);
+        window.location.reload();
+        this.router.navigateByUrl('/home');
+
       }
       if (res.message !== 'success') {
         this.successRegister = 'false';

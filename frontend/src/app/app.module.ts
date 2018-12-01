@@ -17,7 +17,7 @@ import { OtherjobsComponent } from './otherjobs/otherjobs.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
-  { path: 'signup', component: SignupComponent, canActivate: [AuthGuard] },
+  { path: 'signup', component: SignupComponent },
   { path: 'home', component: AlljobsComponent },
   { path: 'home/:pg/:pgs/:criteria', component: OtherjobsComponent },
   { path: 'job/:id/:citeria', component: JobComponent },
