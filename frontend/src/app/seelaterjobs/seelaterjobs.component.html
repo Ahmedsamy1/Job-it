@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row">
+    <span *ngFor="let job of jobs; let i = index;">
+
+      <div *ngIf="user==job.username">
+
+        <div class="col-md">
+          <div class="jobbox" >
+              <img src={{job.company_logo}} alt="job.company">
+          <h5 class="companytitle"> company name: <span>{{job.company}}</span> </h5>
+          <p></p>
+          <P class="jobtitle"> job title:<span> {{job.title.substring(0,45)}}..... </span> </P>
+<button class="seemorebutton" (click)="seemore(job.link)">click to see more info </button>
+          <p></p>
+          <p></p>
+            </div>
+          </div>
+        </div>
+

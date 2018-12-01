@@ -11,10 +11,25 @@ const userjobs = mongoose.Schema({
         type: String,
         
     },
-    criteria: {
-        type: String,
-        required: true,
+    
+    company_logo:{
+        type: String
+
+    },
+    company:{
+        type: String
+
+    },
+    title:{
+        type: String
+
+    },
+    link:{
+        type: String
+
     }
+
+    
 });
 
 userjobs.index({'username': 1, 'jobid': 1}, {unique: true});

@@ -7,7 +7,10 @@ function createjob (req, res, next) {
      var job = new Job({
          username: req.body.username,
          jobid: req.body.jobid,
-         criteria: req.body.criteria,
+         company_logo: req.body.company_logo,
+         company: req.body.company,
+         title: req.body.title,
+         link: req.body.link
         
      });
      job.save((err, doc) => {
@@ -26,7 +29,22 @@ function createjob (req, res, next) {
     
     }
 
+    function deletejob(req,res){
+        
+        let job=new Job();
+        let username=req.params.username;
+        let jobid =req.params.jobid;
+        Job.deleteOne({username: username,jobid: jobid}, function (err) {
+            if(err) res.send({message:'error al borrar la data'})
+    
+            res.send({message:'deleted successfully !!',
+        });
+    
+    })
+    
+    }
+
 
  module.exports = {
-    createjob,alljobs
+    createjob,alljobs,deletejob
 }

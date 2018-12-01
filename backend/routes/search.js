@@ -20,9 +20,11 @@ router.post('/login', userController.login);
 //userjobs
 router.post('/createjob', jobsController.createjob);
 router.get('/alljobs', jobsController.alljobs);
-
+router.delete('/deletejob/:username/:jobid',jobsController.deletejob);
+//
 router.get('/', (req, res, next) => {
     res.send('<h1>Hello from expressjs</h1>');
 });
+
 
 module.exports = router;

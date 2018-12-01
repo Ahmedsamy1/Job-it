@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { Router } from '@angular/router';
+import { SignupService } from '../signup/signup.service';
 @Component({
   selector: 'app-alljobs',
   templateUrl: './alljobs.component.html',
@@ -12,7 +13,7 @@ export class AlljobsComponent implements OnInit {
   pgs: any ;
 
   criteria: any = 'node';
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router , private service: SignupService) { }
 
   ngOnInit() {
     console.log(localStorage.getItem('loggedin'));
@@ -45,6 +46,14 @@ this.http.get('https://jobs.github.com/positions.json?search=' + this.criteria).
 }
 seemore(jobid) {
   this.router.navigateByUrl('/job/' + jobid + '/' + this.criteria);
+
+
+}
+addseelater(jobid, company_logo , company , title ) {
+  const link = '/job/' + jobid + '/' + this.criteria;
+this.service.addseelater(jobid, company_logo , company , title , link).subscribe((data: any) => {
+console.log(data);
+});
 
 
 }

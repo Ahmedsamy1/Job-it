@@ -19,4 +19,19 @@ export class SignupService {
         lastName: ln,
       });
   }
+getjobs() {
+
+    return this.http.get('http://localhost:3000/user/alljobs');
+
+}
+
+addseelater(id: any, cr: any , comp: any , t: any , l: any ) {
+
+  return this.http.post('http://localhost:3000/user/createjob', {username: localStorage.getItem('user'), jobid: id , company_logo: cr
+, company: comp , title : t , link: l
+
+});
+
+}
+
 }

@@ -14,11 +14,13 @@ import { NgFlashMessagesModule } from 'ng-flash-messages';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
 import { OtherjobsComponent } from './otherjobs/otherjobs.component';
+import { SeelaterjobsComponent } from './seelaterjobs/seelaterjobs.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
   { path: 'signup', component: SignupComponent },
   { path: 'home', component: AlljobsComponent },
+  { path: 'seelater', component: SeelaterjobsComponent },
   { path: 'home/:pg/:pgs/:criteria', component: OtherjobsComponent },
   { path: 'job/:id/:citeria', component: JobComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' }
@@ -32,6 +34,7 @@ const routes: Routes = [
     AlljobsComponent,
     JobComponent,
     OtherjobsComponent,
+    SeelaterjobsComponent,
 
 
   ],
