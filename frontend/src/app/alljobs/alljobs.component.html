@@ -19,65 +19,29 @@
 
   </nav>
 
+
   <div class="container">
-      <div class="row">
-      <span *ngFor="let job of jobs; let i = index;">
+    <div class="row">
+    <span *ngFor="let job of jobs; let i = index;">
 
-        <div *ngIf="
-  ">
+      <div *ngIf="i<10">
 
-          <div class="col-md">
-            <div class="jobbox" >
-                <img src={{job.company_logo}} alt="job.company">
-            <h5 class="companytitle"> company name: <span>{{job.company}}</span> </h5>
-            <p></p>
-            <P class="jobtitle"> job title:<span> {{job.title.substring(0,45)}}..... </span> </P>
+
+        <div class="col-md">
+          <div class="jobbox" >
+              <img src={{job.company_logo}} alt="job.company">
+          <h5 class="companytitle"> company name: <span>{{job.company}}</span> </h5>
+          <p></p>
+          <P class="jobtitle"> job title:<span> {{job.title.substring(0,45)}}..... </span> </P>
 <button class="seemorebutton" (click)="seemore(job.id)">click to see more info </button>
 
-            <p></</div>
-          </div>
-<p></p>
-<p></p>
-
-
-
-
-
-      </span>
-    </div>
-  </div>
-
-
-  <div class="container">
-  <div class="wrapper">
-  <div *ngFor="let p of pgs; l</div>
-    p></p>
-
-
-
-
-
-              <p></p>
-              </div>
-            </div>
-         ; l</div>
-
-<p></<class="container">
-  <div cg"wraiv *np>
-  </div>
-
-
-      </span            <p></          </div><p></p>
-<div>
-<p></p>
-            <div *ngIf="loggedin=='true'">
-            <button class="seemorebutton" (click)="addseelater(job.id,job.company_logo,job.company,job.title)">add to see later </button>
-
-          </div>
           <p></p>
-              </div>
+          <button class="seemorebutton" (click)="addseelater(job.id,job.company_logo,job.company,job.title)">click to see more info </button>
+          <p></p>
             </div>
-          </div>
+
+        </div>
+        </div>
 <p></p>
 <p></p>
 
@@ -85,17 +49,25 @@
 
 
 
-      </span>
-    </div>
+    </span>
   </div>
+</div>
 
 
-  <div class="container">
-  <div class="wrapper">
-  <div *ngFor="let p of pgs; let i = index; " >
 
-        <div *ngIf="i>1">
+<div class="container">
+<div class="wrapper">
 
-                <a display=inline href="/home/{{i}}/{{pg}}/{{criteria}}"  class="btn btn-outline-success my-2 my-sm-0" role="button" aria-pressed="true">{{i}}</a>
+<div *ngFor="let p of pgs; let i = index; " >
 
+      <div *ngIf="i>1">
+
+              <a dispaly=inline href="/home/{{i}}/{{pg}}/{{criteria}}"  class="btn btn-outline-success my-2 my-sm-0" role="button" aria-pressed="true">{{i}}</a>
+
+
+</div>
+
+</div>
+</div>
+</div>
 
