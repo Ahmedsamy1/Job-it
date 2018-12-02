@@ -15,6 +15,7 @@ import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
 import { OtherjobsComponent } from './otherjobs/otherjobs.component';
 import { SeelaterjobsComponent } from './seelaterjobs/seelaterjobs.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
@@ -37,9 +38,10 @@ const routes: Routes = [
     SeelaterjobsComponent,
 
 
+
   ],
   imports: [
-    BrowserModule, HttpClientModule, FormsModule, NgFlashMessagesModule.forRoot(),
+    BrowserModule, HttpClientModule, FormsModule, NgFlashMessagesModule.forRoot(),NgxSpinnerModule,
     RouterModule.forRoot(routes)
   ],
   providers: [SignupService],

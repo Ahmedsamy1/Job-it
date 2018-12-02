@@ -18,6 +18,14 @@
   </div>
 
   </nav>
+  <ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-climbing-dot">
+ <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
+
 
 
   <div class="container">
@@ -29,7 +37,11 @@
 
         <div class="col-md">
           <div class="jobbox" >
+
+
               <img src={{job.company_logo}} alt="job.company">
+              <ng-flash-message></ng-flash-message>
+
           <h5 class="companytitle"> company name: <span>{{job.company}}</span> </h5>
           <p></p>
           <P class="jobtitle"> job title:<span> {{job.title.substring(0,45)}}..... </span> </P>
@@ -37,7 +49,7 @@
 
           <p></p>
           <div *ngIf="loggedin=='true'">
-          <button class="seemorebutton" (click)="addseelater(job.id,job.company_logo,job.company,job.title)">add to see later list</button>
+          <button class="seemorebutton2" (click)="addseelater(job.id,job.company_logo,job.company,job.title)">add to see later list</button>
         </div>
           <p></p>
             </div>
