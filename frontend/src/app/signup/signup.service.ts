@@ -34,4 +34,10 @@ addseelater(id: any, cr: any , comp: any , t: any , l: any ) {
 
 }
 
+delete(jobid){
+const username = localStorage.getItem('user');
+console.log(jobid);
+  return this.http.delete('http://localhost:3000/user/deletejob/'+username+'/'+jobid);
+}
+
 }

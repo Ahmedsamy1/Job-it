@@ -28,7 +28,7 @@ export class JobComponent implements OnInit {
       setTimeout(() => {
         /** spinner ends after 5 seconds */
         this.spinner.hide();
-    }, 1200);
+    }, 900);
     });
   }
 
