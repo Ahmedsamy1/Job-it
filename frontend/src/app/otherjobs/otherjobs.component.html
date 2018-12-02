@@ -34,6 +34,9 @@
             <P class="jobtitle"> job title:<span> {{job.title.substring(0,45)}}..... </span> </P>
 <button class="seemorebutton" (click)="seemore(job.id)">click to see more info </button>
             <p></p>
+            <div *ngIf="loggedin=='true'">
+              <button class="seemorebutton" (click)="addseelater(job.id,job.company_logo,job.company,job.title)">add to see later list</button>
+            </div>
             <p></p>
               </div>
             </div>

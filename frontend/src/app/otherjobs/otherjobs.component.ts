@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { SignupService } from '../signup/signup.service';
 
 @Component({
   selector: 'app-otherjobs',
@@ -13,7 +14,8 @@ export class OtherjobsComponent implements OnInit {
   pgs: any ;
   crpg: any;
   criteria: any = 'node';
-  constructor(private http: HttpClient, private router: Router , private route: ActivatedRoute) { }
+  loggedin: any = localStorage.getItem('loggedin');
+  constructor(private http: HttpClient, private router: Router , private route: ActivatedRoute , private service: SignupService) { }
 
   ngOnInit() {
     this.crpg = this.route.snapshot.params['pg'];
@@ -51,6 +53,14 @@ this.http.get('https://jobs.github.com/positions.json?search=' + this.criteria).
 }
 seemore(jobid) {
   this.router.navigateByUrl('/job/' + jobid + '/' + this.criteria);
+
+
+}
+addseelater(jobid, company_logo , company , title ) {
+  const link = '/job/' + jobid + '/' + this.criteria;
+this.service.addseelater(jobid, company_logo , company , title , link).subscribe((data: any) => {
+console.log(data);
+});
 
 
 }
