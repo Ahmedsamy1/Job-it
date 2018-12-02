@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { SignupService } from '../signup/signup.service';
-
+import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-otherjobs',
   templateUrl: './otherjobs.component.html',
@@ -15,9 +15,11 @@ export class OtherjobsComponent implements OnInit {
   crpg: any;
   criteria: any = 'node';
   loggedin: any = localStorage.getItem('loggedin');
-  constructor(private http: HttpClient, private router: Router , private route: ActivatedRoute , private service: SignupService) { }
+  constructor(private http: HttpClient, private router: Router , private route: ActivatedRoute , private service: SignupService
+    ,private spinner: NgxSpinnerService ) { }
 
   ngOnInit() {
+    this.spinner.show();
     this.crpg = this.route.snapshot.params['pg'];
 
     this.criteria = this.route.snapshot.params['criteria'];
@@ -32,6 +34,10 @@ export class OtherjobsComponent implements OnInit {
       this.pg = Math.ceil((this.pg / 10));
       console.log(this.pg);
       this.pgs = new Array(this.pg);
+      setTimeout(() => {
+        /** spinner ends after 5 seconds */
+        this.spinner.hide();
+    }, 1200);
     });
 
   }

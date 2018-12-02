@@ -37,13 +37,15 @@ export class AlljobsComponent implements OnInit {
       setTimeout(() => {
         /** spinner ends after 5 seconds */
         this.spinner.hide();
-    }, 1400);
+    }, 1200);
     });
 
   }
 
 search(event) {
+  this.spinner.show();
   event.preventDefault();
+
 console.log(event.srcElement[0].value);
   this.criteria = event.srcElement[0].value;
 
@@ -55,6 +57,10 @@ this.http.get('https://jobs.github.com/positions.json?search=' + this.criteria).
       this.pg = this.jobs.length;
       this.pg = (Math.floor)(this.pg / 10);
       console.log(this.pg);
+      setTimeout(() => {
+        /** spinner ends after 5 seconds */
+        this.spinner.hide();
+    }, 1250);
     });
 }
 seemore(jobid) {
