@@ -16,6 +16,7 @@ import { AuthGuard } from './auth.guard';
 import { OtherjobsComponent } from './otherjobs/otherjobs.component';
 import { SeelaterjobsComponent } from './seelaterjobs/seelaterjobs.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
@@ -41,7 +42,8 @@ const routes: Routes = [
 
   ],
   imports: [
-    BrowserModule, HttpClientModule, FormsModule, NgFlashMessagesModule.forRoot(),NgxSpinnerModule,
+    BrowserModule, HttpClientModule, FormsModule, NgFlashMessagesModule.forRoot(),
+    NgxSpinnerModule,AngularFontAwesomeModule,
     RouterModule.forRoot(routes)
   ],
   providers: [SignupService],
