@@ -23,7 +23,8 @@
       <div class="row">
       <span *ngFor="let job of jobs; let i = index;">
 
-        <div *ngIf="i<10">
+        <div *ngIf="
+  ">
 
           <div class="col-md">
             <div class="jobbox" >
@@ -33,11 +34,47 @@
             <P class="jobtitle"> job title:<span> {{job.title.substring(0,45)}}..... </span> </P>
 <button class="seemorebutton" (click)="seemore(job.id)">click to see more info </button>
 
-            <p></p>
+            <p></</div>
+          </div>
+<p></p>
+<p></p>
+
+
+
+
+
+      </span>
+    </div>
+  </div>
+
+
+  <div class="container">
+  <div class="wrapper">
+  <div *ngFor="let p of pgs; l</div>
+    p></p>
+
+
+
+
+
+              <p></p>
+              </div>
+            </div>
+         ; l</div>
+
+<p></<class="container">
+  <div cg"wraiv *np>
+  </div>
+
+
+      </span            <p></          </div><p></p>
+<div>
+<p></p>
             <div *ngIf="loggedin=='true'">
             <button class="seemorebutton" (click)="addseelater(job.id,job.company_logo,job.company,job.title)">add to see later </button>
-            </div>
-            <p></p>
+
+          </div>
+          <p></p>
               </div>
             </div>
           </div>
@@ -62,7 +99,3 @@
                 <a display=inline href="/home/{{i}}/{{pg}}/{{criteria}}"  class="btn btn-outline-success my-2 my-sm-0" role="button" aria-pressed="true">{{i}}</a>
 
 
-</div>
-
-</div>
-</div>
