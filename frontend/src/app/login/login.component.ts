@@ -17,6 +17,9 @@ export class LoginComponent implements OnInit {
     console.log(localStorage.getItem('loggedin'));
     console.log(localStorage.getItem('username'));
   }
+  gotosignup(){
+    this.router.navigateByUrl('/signup');
+  }
 login(event) {
   this.userName = event.srcElement[0].value;
   this.password = event.srcElement[1].value ;

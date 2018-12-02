@@ -10,6 +10,7 @@ import { SignupService } from '../signup/signup.service';
 export class AlljobsComponent implements OnInit {
   jobs: any = [];
   pg: any;
+  loggedin: any = localStorage.getItem('loggedin');
   pgs: any ;
 
   criteria: any = 'node';
