@@ -42,41 +42,41 @@ function allusers(req, res) {
 }
 
 function login(req, res) {
-    User.findOne({ userName: req.body.userName }, (err, user) => {
-        if (err) res.status(500).send({ message: err })
-        else {
-            if (!user) { res.send({ message: 'No existe el usuario' }) }
-            else {
-                user.isPasswordMatch(req.body.password, user.password, (err, isMatch) => {
+    // User.findOne({ userName: req.body.userName }, (err, user) => {
+    //     if (err) res.status(500).send({ message: err })
+    //     else {
+    //         if (!user) { res.send({ message: 'No existe el usuario' }) }
+    //         else {
+    //             user.isPasswordMatch(req.body.password, user.password, (err, isMatch) => {
 
-                    //Invalid password
-                    if (!isMatch) {
-                        res.send({
-                            success: false,
-                            message: 'Error, Invalid Password'
-                        });
-                    }
-
-
-                    else {
-                        res.status(200).send({
-                            message: 'success',
-                            //token: service.createToken(user)
-                            user: user
-                        })
-                    }
-                })
-            }
-        }
-    }
+    //                 //Invalid password
+    //                 if (!isMatch) {
+    //                     res.send({
+    //                         success: false,
+    //                         message: 'Error, Invalid Password'
+    //                     });
+    //                 }
 
 
-
-        // req.user = user
+    //                 else {
+    //                     res.status(200).send({
+    //                         message: 'success',
+    //                         //token: service.createToken(user)
+    //                         user: user
+    //                     })
+    //                 }
+    //             })
+    //         }
+    //     }
+    // }
 
 
 
-    })
+    //     // req.user = user
+
+
+
+    // })
 }
 
 
