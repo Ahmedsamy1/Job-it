@@ -6,7 +6,7 @@ Dependencies: to install all depenndecies run npm install once in frontend end a
 to run frontend : ng serve
 
 to run back end:
- 1- create config.js file in config folder in backendend
+ 1- create config folder then add config.js file inside it 
  
  default is this example:
  
