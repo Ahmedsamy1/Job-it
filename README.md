@@ -41,3 +41,5 @@ const config = {
 module.exports = config[env];
 
 2- download dependencies and click npm start
+
+Regarding Docker files to run docker for the backend, open the backend folder in the terminal and then type: "docker-compose up" without the quotes. Then it should run on the port 3000 in the local host.
