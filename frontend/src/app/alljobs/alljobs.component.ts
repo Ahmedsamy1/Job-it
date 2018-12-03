@@ -14,7 +14,7 @@ export class AlljobsComponent implements OnInit {
   pg: any;
   pgs: any ;
   loggedin: any = localStorage.getItem('loggedin');
-  loading:any=true;
+
 
   criteria: any = 'node';
   constructor(private http: HttpClient, private router: Router , private service: SignupService,
@@ -34,11 +34,13 @@ export class AlljobsComponent implements OnInit {
       this.pg = Math.ceil((this.pg / 10));
       console.log(this.pg);
       this.pgs = new Array(this.pg);
+
       setTimeout(() => {
         /** spinner ends after 5 seconds */
         this.spinner.hide();
     }, 1200);
     });
+
 
   }
 
@@ -69,6 +71,7 @@ seemore(jobid) {
 
 }
 addseelater(jobid, company_logo , company , title ) {
+  this.spinner.show();
   const link = '/job/' + jobid + '/' + this.criteria;
 this.service.addseelater(jobid, company_logo , company , title , link).subscribe((data: any) => {
 console.log(data);
@@ -83,6 +86,7 @@ this.ngFlashMessageService.showFlashMessage({
   // Type of flash message, it defaults to info and success, warning, danger types can also be used
   type: 'alert-sucess'
 });
+
 }
  else {
   this.ngFlashMessageService.showFlashMessage({
@@ -96,7 +100,12 @@ this.ngFlashMessageService.showFlashMessage({
     type: 'warning'
   });
 
+
 }
+setTimeout(() => {
+  /** spinner ends after 5 seconds */
+  this.spinner.hide();
+}, 1220);
 
 });
 

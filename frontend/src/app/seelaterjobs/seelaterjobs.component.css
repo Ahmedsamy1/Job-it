@@ -49,3 +49,14 @@ img {
   display: inline;
 }
 
+.nothing {
+  height: 200px;
+  width: 400px;
+  background:white;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -70px;
+  margin-left: -200px;
+}

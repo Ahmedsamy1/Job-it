@@ -47,8 +47,9 @@ img {
 
 
 .wrapper{
-  display: inline;
+  display:inline-block;
 }
+
 
 .seemorebutton2 {
   border: solid 2px #e4e73c;

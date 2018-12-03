@@ -10,7 +10,9 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class SeelaterjobsComponent implements OnInit {
   jobs: any = [];
+  jobs2: any = [];
   user: any;
+  nothing:any ='false';
   constructor(public http: SignupService, private router: Router ,private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
@@ -20,7 +22,15 @@ export class SeelaterjobsComponent implements OnInit {
 console.log(this.jobs);
 
 
+
+
 this.user = localStorage.getItem('user');
+for(let i=0;i<this.jobs.length;i++){
+  if(this.jobs[i].username==this.user)
+  this.nothing='true';
+
+}
+console.log('nothing'+this.nothing);
 setTimeout(() => {
   /** spinner ends after 5 seconds */
   this.spinner.hide();
@@ -35,7 +45,7 @@ setTimeout(() => {
   delete(jobid:any){
 console.log(jobid)
 this.http.delete(jobid).subscribe((res:any)=>{
-  console.log(res);this.ngOnInit();
+  console.log(res);window.location.reload();
 })
 
   }

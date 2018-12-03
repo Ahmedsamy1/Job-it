@@ -27,8 +27,7 @@
 </ngx-spinner>
 
 
-
-
+<ng-flash-message></ng-flash-message>
   <div class="container">
     <div class="row">
     <span *ngFor="let job of jobs; let i = index;">
@@ -41,7 +40,7 @@
 
 
               <img src={{job.company_logo}} alt="job.company">
-              <ng-flash-message></ng-flash-message>
+
 
           <h5 class="companytitle"> company name: <span>{{job.company}}</span> </h5>
           <p></p>
@@ -75,9 +74,9 @@
 
 <div *ngFor="let p of pgs; let i = index; " >
 
-      <div *ngIf="i>1">
+      <div  *ngIf="i>1">
 
-              <a dispaly=inline href="/home/{{i}}/{{pg}}/{{criteria}}"  class="btn btn-outline-success my-2 my-sm-0" role="button" aria-pressed="true">{{i}}</a>
+              <a   href="/home/{{i}}/{{pg}}/{{criteria}}"  class="btn btn-outline-success my-2 my-sm-0" role="button" aria-pressed="true">{{i}}</a>
 
 
 </div>

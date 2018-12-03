@@ -7,28 +7,53 @@ color="#fff"
 type="ball-climbing-dot">
 <p style="font-size: 20px; color: white">Loading...</p>
 </ngx-spinner>
-<span *ngFor="let job of jobs; let i = index;">
+
+<div class="nothing" *ngIf="nothing=='false'">
+<h2>you have no jobs in the list </h2>
+
+</div>
+
 
 <div class="container">
-    <div class="row">
-    <span *ngFor="let job of jobs; let i = index;">
+  <div class="row">
+  <span *ngFor="let job of jobs; let i = index;">
 
-      <div *ngIf="user==job.username">
-
-        <div class="col-md">
-          <div class="jobbox" >
-              <img src={{job.company_logo}} alt="job.company">
+    <div *ngIf="user==job.username">
 
 
-          <h5 class="companytitle"> company name: <span>{{job.company}}</span> </h5>
-          <p></p>
-          <P class="jobtitle"> job title:<span> {{job.title.substring(0,45)}}..... </span> </P>
-<button class="seemorebutton" (click)="seemore(job.link)">click to see more info </button>
+      <div class="col-md">
+        <div class="jobbox" >
 
-          <p></p>
-          <button class="seemorebutton" (click)="delete(job.jobid)"> <i class="fas fa-trash-alt"></i></button>
-          <p></p>
-            </div>
+
+            <img src={{job.company_logo}} alt="job.company">
+            <ng-flash-message></ng-flash-message>
+
+        <h5 class="companytitle"> company name: <span>{{job.company}}</span> </h5>
+        <p></p>
+        <P class="jobtitle"> job title:<span> {{job.title.substring(0,45)}}..... </span> </P>
+        <button class="seemorebutton" (click)="seemore(job.link)">click to see more info </button>
+
+        <p></p>
+        <button class="seemorebutton" (click)="delete(job.jobid)"> <i class="fas fa-trash-alt"></i></button>
+        <p></p>
           </div>
-        </div>
+
+      </div>
+      </div>
+<p></p>
+<p></p>
+
+
+
+
+
+  </span>
+</div>
+</div>
+
+
+
+
+
+
 
