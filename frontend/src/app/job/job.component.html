@@ -16,7 +16,7 @@ type="ball-climbing-dot">
         <h3>type: {{job.type}} </h3>
         <h2 class=active-job_company>company: <span>{{job.company}}</span> </h2>
         <h3>location: {{job.location}}</h3>
-        <h4 class="active-job__publisher">how to apply: <span>{{job.how_to_apply}}</span></h4>
+        <h4 class="active-job__publisher">how to apply:<div innerHTML="{{job.how_to_apply}}"></div></h4>
         <div *ngIf="job.company_url!=null;else no_url">
           <p class="active-job__website">website:<span><a target='_blank' href="{{job.company_url}}">{{job.company_url}}</a></span>
           </p>
