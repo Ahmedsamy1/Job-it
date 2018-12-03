@@ -4,8 +4,33 @@ var passport = require('passport')
     , LocalStrategy = require('passport-local').Strategy;
 
 function createUser(req, res, next) {
-    console.log(req.body);
 
+    /* User.findOne({ userName: req.body.userName }, (err, user2) => {
+        if(err)res.status(500).send({message:'error al salvar a la base de datos'})
+        else{
+         if(user2){
+             res.status(500).send({message:'choose another username'})}
+         else{
+             const user = new User({
+                 userName: req.body.userName,
+                 firstName: req.body.firstName,
+                 lastName: req.body.lastName,
+                // email: req.body.email,
+                 password: req.body.password
+             });
+     user.save()
+         .then(res.status(200).send({message:'saved successfully !!',
+         user:user,
+         
+         })
+             // console.log(result);
+         )
+         .catch(res.status(500).send({message:'error al salvar a la base de datos'}))
+     //res.redirect('/');
+ }
+        }
+ 
+     })*/
     var user = new User({
         userName: req.body.userName,
         firstName: req.body.firstName,
@@ -13,14 +38,10 @@ function createUser(req, res, next) {
         // email: req.body.email,
         password: req.body.password
     });
-    // user.findOne(user);
     user.save((err, doc) => {
-        if (!err) {
-            res.send({ "status": "done" });
-        }
-        else {
-            res.send({ "status": "error" });
-        }
+        if (!err) { res.send({ message: 'success', user: doc }); }
+        else { res.send({ message: 'error al salvar a la base de datos' }) }
+
     })
 }
 
@@ -42,41 +63,40 @@ function allusers(req, res) {
 }
 
 function login(req, res) {
-    // User.findOne({ userName: req.body.userName }, (err, user) => {
-    //     if (err) res.status(500).send({ message: err })
-    //     else {
-    //         if (!user) { res.send({ message: 'No existe el usuario' }) }
-    //         else {
-    //             user.isPasswordMatch(req.body.password, user.password, (err, isMatch) => {
+    User.findOne({ userName: req.body.userName }, (err, user) => {
+        if (err) res.status(500).send({ message: err })
+        else {
+            if (!user) { res.send({ message: 'No existe el usuario' }) }
+            else {
+                user.isPasswordMatch(req.body.password, user.password, (err, isMatch) => {
 
-    //                 //Invalid password
-    //                 if (!isMatch) {
-    //                     res.send({
-    //                         success: false,
-    //                         message: 'Error, Invalid Password'
-    //                     });
-    //                 }
-
-
-    //                 else {
-    //                     res.status(200).send({
-    //                         message: 'success',
-    //                         //token: service.createToken(user)
-    //                         user: user
-    //                     })
-    //                 }
-    //             })
-    //         }
-    //     }
-    // }
+                    //Invalid password
+                    if (!isMatch) {
+                        res.send({
+                            success: false,
+                            message: 'Error, Invalid Password'
+                        });
+                    }
 
 
-
-    //     // req.user = user
+                    else {
+                        res.status(200).send({
+                            message: 'success',
+                            //token: service.createToken(user)
+                            user: user
+                        })
+                    }
+                })
+            }
+        }
 
 
 
-    // })
+        // req.user = user
+
+
+
+    })
 }
 
 

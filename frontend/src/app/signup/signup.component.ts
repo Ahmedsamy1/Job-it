@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SignupService } from './signup.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -11,11 +12,11 @@ export class SignupComponent implements OnInit {
   private password: string = '';
   private firstName: string = '';
   private lastName: string = '';
-  private successRegister: boolean = false;
-  private failedRegister: boolean = false;
+  successRegister: any ;
+  failedRegister: any ;
 
 
-  constructor(public http: SignupService) {
+  constructor(public http: SignupService, private router: Router) {
 
   }
 
@@ -40,16 +41,21 @@ export class SignupComponent implements OnInit {
 
   onSignUp(event: any) {
     this.http.signUp(this.userName, this.password, this.firstName, this.lastName).subscribe((res: any) => {
-      console.log(res.status === 'done');
-      console.log(res.status);
+     // console.log(res.status === 'done');
+      console.log(res.message);
 
-      if (res.status === 'done') {
-        this.successRegister = true;
-        this.failedRegister = false;
+      if (res.message === 'success') {
+        this.successRegister = 'true';
+        this.failedRegister = 'false';
+        localStorage.setItem('loggedin', 'true');
+        localStorage.setItem('user', this.userName);
+        window.location.reload();
+        this.router.navigateByUrl('/home');
+
       }
-      else {
-        this.successRegister = false;
-        this.failedRegister = true;
+      if (res.message !== 'success') {
+        this.successRegister = 'false';
+        this.failedRegister = 'true';
       }
     });
   }

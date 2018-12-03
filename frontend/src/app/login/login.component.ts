@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { NgFlashMessageService } from 'ng-flash-messages';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,12 +12,18 @@ import { NgFlashMessageService } from 'ng-flash-messages';
 export class LoginComponent implements OnInit {
   userName: any;
   password: any;
-  constructor(private auth: AuthService, private router: Router, private ngFlashMessageService: NgFlashMessageService) { }
+  constructor(private auth: AuthService, private router: Router,
+    private ngFlashMessageService: NgFlashMessageService, private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
     console.log(localStorage.getItem('loggedin'));
+    console.log(localStorage.getItem('username'));
+  }
+  gotosignup() {
+    this.router.navigateByUrl('/signup');
   }
   login(event) {
+    this.spinner.show();
     this.userName = event.srcElement[0].value;
     this.password = event.srcElement[1].value;
     const user = {
@@ -25,16 +33,23 @@ export class LoginComponent implements OnInit {
     };
     // console.log(this.userName, this.password);
 
-    this.auth.login(user).subscribe((res) => {
+    this.auth.login(user).subscribe((res: any) => {
       console.log(res);
       if (res.message === 'success') {
         this.auth.user = res;
         this.auth.isloggedin = true;
         console.log(this.auth.user);
         localStorage.setItem('loggedin', 'true');
+        localStorage.setItem('user', this.userName);
         console.log(localStorage.getItem('loggedin'));
+        window.location.reload();
+
         this.router.navigateByUrl('/home');
       } else {
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinner.hide();
+        }, 800);
         this.ngFlashMessageService.showFlashMessage({
           // Array of messages each will be displayed in new line
           messages: ['username or password are incorrect'],
@@ -48,7 +63,7 @@ export class LoginComponent implements OnInit {
 
       }
 
-      //this.router.navigateByUrl('/home');
+
     });
 
   }

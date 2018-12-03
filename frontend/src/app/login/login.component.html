@@ -1,4 +1,11 @@
 <body>
+  <ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-climbing-dot">
+ <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>
 
   <div class="container">
     <div class="row">
@@ -22,10 +29,11 @@
                 <input type="checkbox" class="custom-control-input" id="customCheck1">
                 <label class="custom-control-label" for="customCheck1">Remember password</label>
               </div>
-              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Log in</button>
               <hr class="my-4">
 <ng-flash-message></ng-flash-message>
             </form>
+            <button class="btn btn-lg btn-primary btn-block text-uppercase" (click)="gotosignup()">Sign up</button>
           </div>
         </div>
       </div>

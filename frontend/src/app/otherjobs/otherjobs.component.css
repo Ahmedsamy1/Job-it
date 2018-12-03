@@ -1,8 +1,7 @@
 img {
   width: 75px;
   height: 65px;
-  align-self: center;
-  align-items: center;
+  align-self: left;
 }
 .companytitle {
   color: #e74c3c;
@@ -45,11 +44,6 @@ img {
   cursor: pointer;
 }
 
-
-.wrapper{
-  display: inline;
-}
-
 .seemorebutton2 {
   border: solid 2px #e4e73c;
   color: aqua;
@@ -63,5 +57,7 @@ img {
   margin-left: 0.7rem;
   cursor:pointer;
 }
+
+
 
 
